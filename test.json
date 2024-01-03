@@ -1,5 +1,0 @@
-{
-    "title": "School Night",
-    "prompt": ["A word describing graduation", "An exclamation", "A name", "Another name"],
-    "story": "This is a {0} graduation, dear friend. {1}! I wish {2} made it with {3}."
-}
