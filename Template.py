@@ -20,5 +20,5 @@ class Template:
         return self.template.get("title")
 
     def export_template(self, filename: str):
-        with open(filename, "w") as file:
+        with open("./templates/" + filename, "w") as file:
             json.dump(self.template, file)

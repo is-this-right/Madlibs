@@ -3,12 +3,14 @@ For opening a Json file:
 https://www.freecodecamp.org/news/loading-a-json-file-in-python-how-to-read-and-parse-json/
 '''
 import json
+import templates
 
 from Madlib import Madlib
 from Template import Template
 
-
-# import tkinter
+import os
+import tkinter
+from tkinter import *
 
 
 def openJson(json_file):
@@ -50,11 +52,20 @@ def export_template(template: Template, filename):
     template.export_template(filename)
 
 
-if __name__ == "__main__":
-    # use_template("New Year.json")
+def template_creator():
     template_output = create_template()
     export_template(template_output, template_output.get_title() + ".json")
-    # main_window = tkinter.Tk()
-    # main_window.title("Mad Libs")
-    # main_window.geometry("500x500")
-    # main_window.mainloop()
+
+
+if __name__ == "__main__":
+    action = input("(C)reate new template or (U)se existing template?")
+    if action == "C":
+        template_creator()
+    elif action == "U":
+        path = "./templates/"
+        all_files = os.listdir(path)
+        for file in all_files:
+            file = file.strip(".json")
+            print(file)
+        template_name = path + input("Which template do you want to use?") + ".json"
+        use_template(template_name)
